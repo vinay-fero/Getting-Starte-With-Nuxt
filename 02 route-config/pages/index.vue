@@ -1,5 +1,7 @@
 <template>
-  <h1>Index</h1>
+  <section>
+    <nuxt-link to="/users">Users</nuxt-link>
+  </section>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 {
-  "name": "first-nuxt-app",
+  "name": "route-config",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,5 @@
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
   },
-  "devDependencies": {
-    "@nuxt/types": "~2.15.0"
-  }
+  "devDependencies": {}
 }
