@@ -1,12 +1,12 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title of the post</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Last Updated On</div>
-        <div class="post-detail">Written by</div>
+        <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>
+        <div class="post-detail">Written by {{ loadedPost.author }}</div>
       </div>
-      <p class="post-content">content</p>
+      <p class="post-content">{{ loadedPost.content }}</p>
     </section>
     <section class="post-feedback">
       <p>
@@ -19,7 +19,25 @@
 
 <script>
 export default {
-  name: "index"
+  name: "index",
+  asyncData(ctx, callback) {
+    setTimeout(() => {
+      callback(
+        null,
+        {
+          loadedPost: {
+            id: '1',
+            title: 'First Post',
+            previewText: 'Preview Text',
+            thumbnail: "'https://static.fandomspot.com/images/07/7935/00-featured-hange-zoe-attack-on-titan-scientist-character-anime.jpg'",
+            author: 'Max',
+            updatedDate: new Date(),
+            content: 'Some dummy text'
+          }
+        }
+      );
+    }, 1000);
+  }
 }
 </script>
 

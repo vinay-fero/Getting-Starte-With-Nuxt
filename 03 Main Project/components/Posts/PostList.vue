@@ -1,11 +1,13 @@
 <template>
   <section class="post-list">
     <PostPreview
-      id="1"
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id"
       :isAdmin="isAdmin"
-      title="Post Title"
-      pre-view-text="Preview Text"
-      thumbnail="'https://static.fandomspot.com/images/07/7935/00-featured-hange-zoe-attack-on-titan-scientist-character-anime.jpg'"
+      :title="post.title"
+      :pre-view-text="post.previewText"
+      :thumbnail="post.thumbnail"
     />
   </section>
 </template>
@@ -22,6 +24,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }

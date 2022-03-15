@@ -1,6 +1,6 @@
 <template>
   <div class="posts-page">
-    <PostList />
+    <PostList :posts="loadedPosts"/>
   </div>
 </template>
 
@@ -11,6 +11,18 @@ export default {
   name: "index",
   components: {
     PostList
+  },
+  data() {
+    return {
+      loadedPosts: [
+        {
+          id: '1',
+          title: 'First Post',
+          previewText: 'Preview Text',
+          thumbnail: "'https://static.fandomspot.com/images/07/7935/00-featured-hange-zoe-attack-on-titan-scientist-character-anime.jpg'"
+        }
+      ]
+    }
   }
 }
 </script>
