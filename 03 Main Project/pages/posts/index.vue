@@ -12,18 +12,26 @@ export default {
   components: {
     PostList
   },
-  data() {
-    return {
-      loadedPosts: [
-        {
-          id: '1',
-          title: 'First Post',
-          previewText: 'Preview Text',
-          thumbnail: "'https://static.fandomspot.com/images/07/7935/00-featured-hange-zoe-attack-on-titan-scientist-character-anime.jpg'"
-        }
-      ]
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
     }
   }
+  // created() {
+  //   this.$store.dispatch('setPosts', this.loadedPosts);
+  // },
+  // data() {
+  //   return {
+  //     loadedPosts: [
+  //       {
+  //         id: '1',
+  //         title: 'First Post',
+  //         previewText: 'Preview Text',
+  //         thumbnail: "'https://static.fandomspot.com/images/07/7935/00-featured-hange-zoe-attack-on-titan-scientist-character-anime.jpg'"
+  //       }
+  //     ]
+  //   }
+  // }
 }
 </script>
 

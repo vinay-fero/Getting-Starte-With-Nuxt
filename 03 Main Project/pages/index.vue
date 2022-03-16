@@ -15,24 +15,29 @@ export default {
   components: {
     PostList
   },
-  asyncData(context, callback) {
-    console.log('async context', context);
-    setTimeout(() => {
-      callback(
-        null,
-        {
-          loadedPosts: [
-            {
-              id: '1',
-              title: 'First Post',
-              previewText: 'Preview Text',
-              thumbnail: "'https://static.fandomspot.com/images/07/7935/00-featured-hange-zoe-attack-on-titan-scientist-character-anime.jpg'"
-            }
-          ]
-        }
-      );
-    }, 1500);
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
+    }
   }
+  // asyncData(context, callback) {
+  //   console.log('async context', context);
+  //   setTimeout(() => {
+  //     callback(
+  //       null,
+  //       {
+  //         loadedPosts: [
+  //           {
+  //             id: '1',
+  //             title: 'First Post',
+  //             previewText: 'Preview Text',
+  //             thumbnail: "'https://static.fandomspot.com/images/07/7935/00-featured-hange-zoe-attack-on-titan-scientist-character-anime.jpg'"
+  //           }
+  //         ]
+  //       }
+  //     );
+  //   }, 1500);
+  // }
 }
 </script>
 
