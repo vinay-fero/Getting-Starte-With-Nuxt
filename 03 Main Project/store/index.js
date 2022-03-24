@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import axios from "axios";
 
 export default () => {
   return new Vuex.Store({
@@ -11,8 +12,14 @@ export default () => {
       }
     },
     actions: {
-      nuxtServerInit(vuexContext, context) {
-        if (!process.client) {
+      async nuxtServerInit(vuexContext, context) {
+        const resp = await axios.get('https://vue-project-bb658-default-rtdb.firebaseio.com/posts.json');
+        const posts = [];
+        for (const post in resp.data) {
+          posts.push({...resp.data[post], id: post})
+        }
+        vuexContext.commit('setPosts', posts);
+        /*if (!process.client) {
           console.log('context req', context.req);
         }
         return new Promise((resolve, reject) => {
@@ -30,7 +37,7 @@ export default () => {
             ]);
             resolve()
           }, 1000);
-        })
+        })*/
       },
       setPosts(context, posts) {
         context.commit('setPosts', posts);
